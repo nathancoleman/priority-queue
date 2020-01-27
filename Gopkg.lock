@@ -2,7 +2,7 @@
 
 
 [[projects]]
-  digest = "1:3fc566fe98eb4d9e0a329e4be684fc828501af51dfe78bd6a6e1591e7fcd4a3b"
+  digest = "1:4957fbd86f8fdec3bc2fbea787f3b2e9b414b06f48a7b5c89f7a3d6efa332c13"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -10,23 +10,38 @@
     "aws/awsutil",
     "aws/client",
     "aws/client/metadata",
+    "aws/corehandlers",
     "aws/credentials",
+    "aws/credentials/ec2rolecreds",
+    "aws/credentials/endpointcreds",
+    "aws/credentials/processcreds",
+    "aws/credentials/stscreds",
     "aws/crr",
+    "aws/csm",
+    "aws/defaults",
+    "aws/ec2metadata",
     "aws/endpoints",
     "aws/request",
+    "aws/session",
     "aws/signer/v4",
     "internal/ini",
     "internal/sdkio",
     "internal/sdkmath",
     "internal/sdkrand",
+    "internal/sdkuri",
     "internal/shareddefaults",
     "internal/strings",
     "private/protocol",
     "private/protocol/json/jsonutil",
     "private/protocol/jsonrpc",
+    "private/protocol/query",
+    "private/protocol/query/queryutil",
     "private/protocol/rest",
+    "private/protocol/xml/xmlutil",
     "service/dynamodb",
     "service/dynamodb/dynamodbiface",
+    "service/sts",
+    "service/sts/stsiface",
   ]
   pruneopts = "UT"
   revision = "6c32c9957b355491e82635c1d318e7614a997428"
@@ -42,6 +57,11 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"]
+  input-imports = [
+    "github.com/aws/aws-sdk-go/aws",
+    "github.com/aws/aws-sdk-go/aws/session",
+    "github.com/aws/aws-sdk-go/service/dynamodb",
+    "github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
