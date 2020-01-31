@@ -1,16 +1,15 @@
 package queue
 
-import "io"
-
 type Message struct {
-	priority int
-	payload  io.ReadCloser
+	ID       string
+	Priority int8
+	Data     map[string]string
 }
 
 type PriorityQueue interface {
-	Enqueue(message Message) error
+	Enqueue(message *Message) error
 
-	Dequeue() (Message, error)
+	Dequeue() (*Message, error)
 
-	DequeuePriority(priority int) (Message, error)
+	DequeuePriority(priority int) (*Message, error)
 }
