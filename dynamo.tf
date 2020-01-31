@@ -13,19 +13,19 @@ resource "aws_dynamodb_table" "priority-queue-table" {
   }
 
   attribute {
-    name = "priority"
+    name = "queued"
     type = "N"
   }
 
   attribute {
-    name = "enqueued_time"
-    type = "N"
+    name = "priority_timestamp"
+    type = "S"
   }
 
   global_secondary_index {
-    name = "priority-enqueued_time-index"
-    hash_key = "priority"
-    range_key = "enqueued_time"
+    name = "queued-priority_timestamp-index"
+    hash_key = "queued"
+    range_key = "priority_timestamp"
     projection_type = "ALL"
   }
 }
