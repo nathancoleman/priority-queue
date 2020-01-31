@@ -19,9 +19,9 @@ type dynamoPriorityQueue struct {
 
 type dynamoItem struct {
 	ID                string            `dynamodbav:"id"`
-	Priority          int8              `dynamodbav:"Priority"`
+	Priority          int8              `dynamodbav:"priority"`
 	EnqueuedTimestamp int64             `dynamodbav:"enqueued_timestamp"`
-	Data              map[string]string `dynamodbav:"Data"`
+	Data              map[string]string `dynamodbav:"data"`
 }
 
 func NewDynamoPriorityQueue(tableName, region string) (*dynamoPriorityQueue, error) {
