@@ -19,7 +19,7 @@ resource "aws_dynamodb_table" "priority-queue-table" {
 
   attribute {
     name = "enqueued_time"
-    type = "S"
+    type = "N"
   }
 
   global_secondary_index {
